@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Bestelformulier</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+    <h1 class="mb-4">Bestelformulier</h1>
+    <p>Vul dit formulier in om een bestelling te plaatsen. Je ontvangt een bevestiging via e-mail.</p>
+
+    <form action="https://formspree.io/f/xwlkkaea" method="POST" class="border p-4 bg-white rounded">
+
+        <h4 class="mb-3">Gegevens</h4>
+
+        <div class="mb-3">
+            <label for="naam" class="form-label">Naam *</label>
+            <input type="text" id="naam" name="naam" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">E-mail *</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+
+        <hr>
+
+        <h4 class="mb-3">Bestelling</h4>
+
+        <div class="mb-3">
+            <label for="product" class="form-label">Gekozen product *</label>
+            <select id="product" name="product" class="form-select" required>
+                <option value="">-- kies een product --</option>
+                <option value="Vintage T-shirt">Vintage T-shirt</option>
+                <option value="Secondhand Jeans">Secondhand Jeans</option>
+                <option value="Winter Accessoire Set">Winter Accessoire Set</option>
+                <option value="Anders">Ander product (specifieer hieronder)</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="aantal" class="form-label">Aantal *</label>
+            <input type="number" id="aantal" name="aantal" class="form-control" min="1" max="20" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="opmerkingen" class="form-label">Opmerkingen / speciale wensen</label>
+            <textarea id="opmerkingen" name="opmerkingen" class="form-control" rows="4"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Bestelling verzenden</button>
+    </form>
+</div>
+
+</body>
+</html>
