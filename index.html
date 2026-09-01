@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -47,6 +48,15 @@
 
         .aantal-select {
             max-width: 120px;
+        }
+
+        .geur-keuze {
+            margin-top: 10px;
+        }
+
+        .geur-keuze label {
+            font-weight: 500;
+            margin-bottom: 4px;
         }
 
         .ingredienten {
@@ -132,6 +142,68 @@
 
         </div>
 
+        <div class="mb-3">
+
+            <label
+                for="telefoonnummer"
+                class="form-label"
+            >
+                Telefoonnummer *
+            </label>
+
+            <input
+                type="tel"
+                id="telefoonnummer"
+                name="telefoonnummer"
+                class="form-control"
+                required
+            >
+
+        </div>
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Betalingswijze *
+            </label>
+
+            <div>
+                <div class="form-check">
+                    <input
+                        class="form-check-input"
+                        type="radio"
+                        name="betalingswijze"
+                        id="cash"
+                        value="Cash"
+                        required
+                    >
+                    <label
+                        class="form-check-label"
+                        for="cash"
+                    >
+                        Cash
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input
+                        class="form-check-input"
+                        type="radio"
+                        name="betalingswijze"
+                        id="bancontact"
+                        value="Bancontact"
+                    >
+                    <label
+                        class="form-check-label"
+                        for="bancontact"
+                    >
+                        Bancontact
+                    </label>
+                </div>
+            </div>
+
+        </div>
+
         <hr>
 
         <!-- BESTELLING -->
@@ -167,31 +239,83 @@
                     Hier kun je de ingrediënten van Flesje 5 invullen.
                 </div>
 
-                <label
-                    for="flesje5"
-                    class="form-label mt-3"
-                >
-                </label>
+                <div class="geur-keuze">
 
-                <select
-                    id="flesje5"
-                    name="Flesje 5 aantal"
-                    class="form-select aantal-select"
-                >
+                    <label for="flesje5_sinaasappel">
+                        Sinaasappel
+                    </label>
 
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
+                    <select
+                        id="flesje5_sinaasappel"
+                        name="Flesje 5 Sinaasappel aantal"
+                        class="form-select aantal-select"
+                    >
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
 
-                </select>
+                </div>
+
+                <div class="geur-keuze">
+
+                    <label for="flesje5_lavendel">
+                        Lavendel
+                    </label>
+
+                    <select
+                        id="flesje5_lavendel"
+                        name="Flesje 5 Lavendel aantal"
+                        class="form-select aantal-select"
+                    >
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+
+                </div>
+
+                <div class="geur-keuze">
+
+                    <label for="flesje5_pepermunt">
+                        Pepermunt
+                    </label>
+
+                    <select
+                        id="flesje5_pepermunt"
+                        name="Flesje 5 Pepermunt aantal"
+                        class="form-select aantal-select"
+                    >
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+
+                </div>
 
                 <div class="prijs">
                     €0.00 per stuk
@@ -230,31 +354,83 @@
                     Hier kun je de ingrediënten van Flesje 6 invullen.
                 </div>
 
-                <label
-                    for="flesje6"
-                    class="form-label mt-3"
-                >
-                </label>
+                <div class="geur-keuze">
 
-                <select
-                    id="flesje6"
-                    name="Flesje 6 aantal"
-                    class="form-select aantal-select"
-                >
+                    <label for="flesje6_sinaasappel">
+                        Sinaasappel
+                    </label>
 
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
+                    <select
+                        id="flesje6_sinaasappel"
+                        name="Flesje 6 Sinaasappel aantal"
+                        class="form-select aantal-select"
+                    >
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
 
-                </select>
+                </div>
+
+                <div class="geur-keuze">
+
+                    <label for="flesje6_lavendel">
+                        Lavendel
+                    </label>
+
+                    <select
+                        id="flesje6_lavendel"
+                        name="Flesje 6 Lavendel aantal"
+                        class="form-select aantal-select"
+                    >
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+
+                </div>
+
+                <div class="geur-keuze">
+
+                    <label for="flesje6_pepermunt">
+                        Pepermunt
+                    </label>
+
+                    <select
+                        id="flesje6_pepermunt"
+                        name="Flesje 6 Pepermunt aantal"
+                        class="form-select aantal-select"
+                    >
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+
+                </div>
 
                 <div class="prijs">
                     €0.00 per stuk
@@ -293,31 +469,83 @@
                     Hier kun je de ingrediënten van Flesje 1 invullen.
                 </div>
 
-                <label
-                    for="flesje1"
-                    class="form-label mt-3"
-                >
-                </label>
+                <div class="geur-keuze">
 
-                <select
-                    id="flesje1"
-                    name="Flesje 1 aantal"
-                    class="form-select aantal-select"
-                >
+                    <label for="flesje1_sinaasappel">
+                        Sinaasappel
+                    </label>
 
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
+                    <select
+                        id="flesje1_sinaasappel"
+                        name="Flesje 1 Sinaasappel aantal"
+                        class="form-select aantal-select"
+                    >
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
 
-                </select>
+                </div>
+
+                <div class="geur-keuze">
+
+                    <label for="flesje1_lavendel">
+                        Lavendel
+                    </label>
+
+                    <select
+                        id="flesje1_lavendel"
+                        name="Flesje 1 Lavendel aantal"
+                        class="form-select aantal-select"
+                    >
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+
+                </div>
+
+                <div class="geur-keuze">
+
+                    <label for="flesje1_pepermunt">
+                        Pepermunt
+                    </label>
+
+                    <select
+                        id="flesje1_pepermunt"
+                        name="Flesje 1 Pepermunt aantal"
+                        class="form-select aantal-select"
+                    >
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+
+                </div>
 
                 <div class="prijs">
                     €9.99 per stuk
@@ -356,31 +584,83 @@
                     Hier kun je de ingrediënten van Flesje 2 invullen.
                 </div>
 
-                <label
-                    for="flesje2"
-                    class="form-label mt-3"
-                >
-                </label>
+                <div class="geur-keuze">
 
-                <select
-                    id="flesje2"
-                    name="Flesje 2 aantal"
-                    class="form-select aantal-select"
-                >
+                    <label for="flesje2_sinaasappel">
+                        Sinaasappel
+                    </label>
 
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
+                    <select
+                        id="flesje2_sinaasappel"
+                        name="Flesje 2 Sinaasappel aantal"
+                        class="form-select aantal-select"
+                    >
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
 
-                </select>
+                </div>
+
+                <div class="geur-keuze">
+
+                    <label for="flesje2_lavendel">
+                        Lavendel
+                    </label>
+
+                    <select
+                        id="flesje2_lavendel"
+                        name="Flesje 2 Lavendel aantal"
+                        class="form-select aantal-select"
+                    >
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+
+                </div>
+
+                <div class="geur-keuze">
+
+                    <label for="flesje2_pepermunt">
+                        Pepermunt
+                    </label>
+
+                    <select
+                        id="flesje2_pepermunt"
+                        name="Flesje 2 Pepermunt aantal"
+                        class="form-select aantal-select"
+                    >
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+
+                </div>
 
                 <div class="prijs">
                     €19.99 per stuk
@@ -566,3 +846,4 @@ function toggleIngredienten(id) {
 </body>
 
 </html>
+```
