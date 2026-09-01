@@ -1,849 +1,225 @@
 ```html
 <!DOCTYPE html>
 <html lang="nl">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bestelformulier</title>
 
-    <title>Bestelformulier</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
-
-    <style>
-        .product {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 20px;
-            margin-bottom: 20px;
-
-            border: 1px solid #ddd;
-            border-radius: 12px;
-
-            background-color: #ffffff;
-        }
-
-        .product img {
-            width: 140px;
-            height: 140px;
-
-            object-fit: cover;
-
-            border-radius: 10px;
-        }
-
-        .product-info {
-            flex: 1;
-        }
-
-        .prijs {
-            font-size: 20px;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        .aantal-select {
-            max-width: 120px;
-        }
-
-        .geur-keuze {
-            margin-top: 10px;
-        }
-
-        .geur-keuze label {
-            font-weight: 500;
-            margin-bottom: 4px;
-        }
-
-        .ingredienten {
-            display: none;
-            margin-top: 15px;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #f8f9fa;
-        }
-
-        @media (max-width: 600px) {
-
-            .product {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .product img {
-                width: 100%;
-                height: 220px;
-            }
-        }
-    </style>
+<style>
+.product{display:flex;align-items:center;gap:20px;padding:20px;margin-bottom:20px;border:1px solid #ddd;border-radius:12px;background:#fff}
+.product img{width:140px;height:140px;object-fit:cover;border-radius:10px}
+.product-info{flex:1}.prijs{font-size:20px;font-weight:bold;margin-top:10px}
+.ingredienten{display:none;margin-top:15px;padding:12px;border:1px solid #ddd;border-radius:8px;background:#f8f9fa}
+.geuren{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}
+.geur{display:none;margin-top:10px}
+@media(max-width:600px){.product{flex-direction:column;align-items:flex-start}.product img{width:100%;height:220px}}
+</style>
 </head>
 
 <body class="bg-light">
 
 <div class="container mt-5 mb-5">
-
-    <h1 class="mb-4">Bestelformulier</h1>
-
-    <p>
-        Vul dit formulier in om een bestelling te plaatsen.
-        Je ontvangt een bevestiging via e-mail.
-    </p>
-
-    <form
-        action="https://formspree.io/f/xwlkkaea"
-        method="POST"
-        class="border p-4 bg-white rounded"
-    >
-
-        <!-- GEGEVENS -->
-
-        <h4 class="mb-3">Gegevens</h4>
-
-        <div class="mb-3">
-
-            <label
-                for="naam"
-                class="form-label"
-            >
-                Naam *
-            </label>
-
-            <input
-                type="text"
-                id="naam"
-                name="naam"
-                class="form-control"
-                required
-            >
-
-        </div>
-
-        <div class="mb-3">
-
-            <label
-                for="instagram accountnaam"
-                class="form-label"
-            >
-                Instagram-accountnaam *
-            </label>
-
-            <input
-                type="text"
-                id="instagram accountnaam"
-                name="instagram accountnaam"
-                class="form-control"
-                required
-            >
-
-        </div>
-
-        <div class="mb-3">
-
-            <label
-                for="telefoonnummer"
-                class="form-label"
-            >
-                Telefoonnummer *
-            </label>
-
-            <input
-                type="tel"
-                id="telefoonnummer"
-                name="telefoonnummer"
-                class="form-control"
-                required
-            >
-
-        </div>
-
-        <div class="mb-3">
-
-            <label class="form-label">
-                Betalingswijze *
-            </label>
-
-            <div>
-                <div class="form-check">
-                    <input
-                        class="form-check-input"
-                        type="radio"
-                        name="betalingswijze"
-                        id="cash"
-                        value="Cash"
-                        required
-                    >
-                    <label
-                        class="form-check-label"
-                        for="cash"
-                    >
-                        Cash
-                    </label>
-                </div>
-
-                <div class="form-check">
-                    <input
-                        class="form-check-input"
-                        type="radio"
-                        name="betalingswijze"
-                        id="bancontact"
-                        value="Bancontact"
-                    >
-                    <label
-                        class="form-check-label"
-                        for="bancontact"
-                    >
-                        Bancontact
-                    </label>
-                </div>
-            </div>
-
-        </div>
-
-        <hr>
-
-        <!-- BESTELLING -->
-
-        <h4 class="mb-4">Bestelling</h4>
-
-        <!-- FLESJE 5 -->
-
-        <div class="product">
-
-            <img
-                src="https://via.placeholder.com/300x300?text=Flesje+5"
-                alt="Flesje 5"
-            >
-
-            <div class="product-info">
-
-                <h5>Massage Olie 500ml</h5>
-
-                <button
-                    type="button"
-                    class="btn btn-outline-secondary btn-sm"
-                    onclick="toggleIngredienten('ingredienten5')"
-                >
-                    Ingrediënten
-                </button>
-
-                <div
-                    id="ingredienten5"
-                    class="ingredienten"
-                >
-                    <strong>Ingrediënten:</strong><br>
-                    Hier kun je de ingrediënten van Flesje 5 invullen.
-                </div>
-
-                <div class="geur-keuze">
-
-                    <label for="flesje5_sinaasappel">
-                        Sinaasappel
-                    </label>
-
-                    <select
-                        id="flesje5_sinaasappel"
-                        name="Flesje 5 Sinaasappel aantal"
-                        class="form-select aantal-select"
-                    >
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
-
-                </div>
-
-                <div class="geur-keuze">
-
-                    <label for="flesje5_lavendel">
-                        Lavendel
-                    </label>
-
-                    <select
-                        id="flesje5_lavendel"
-                        name="Flesje 5 Lavendel aantal"
-                        class="form-select aantal-select"
-                    >
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
-
-                </div>
-
-                <div class="geur-keuze">
-
-                    <label for="flesje5_pepermunt">
-                        Pepermunt
-                    </label>
-
-                    <select
-                        id="flesje5_pepermunt"
-                        name="Flesje 5 Pepermunt aantal"
-                        class="form-select aantal-select"
-                    >
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
-
-                </div>
-
-                <div class="prijs">
-                    €0.00 per stuk
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- FLESJE 6 -->
-
-        <div class="product">
-
-            <img
-                src="https://via.placeholder.com/300x300?text=Flesje+6"
-                alt="Flesje 6"
-            >
-
-            <div class="product-info">
-
-                <h5>Massage Olie 1000ml</h5>
-
-                <button
-                    type="button"
-                    class="btn btn-outline-secondary btn-sm"
-                    onclick="toggleIngredienten('ingredienten6')"
-                >
-                    Ingrediënten
-                </button>
-
-                <div
-                    id="ingredienten6"
-                    class="ingredienten"
-                >
-                    <strong>Ingrediënten:</strong><br>
-                    Hier kun je de ingrediënten van Flesje 6 invullen.
-                </div>
-
-                <div class="geur-keuze">
-
-                    <label for="flesje6_sinaasappel">
-                        Sinaasappel
-                    </label>
-
-                    <select
-                        id="flesje6_sinaasappel"
-                        name="Flesje 6 Sinaasappel aantal"
-                        class="form-select aantal-select"
-                    >
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
-
-                </div>
-
-                <div class="geur-keuze">
-
-                    <label for="flesje6_lavendel">
-                        Lavendel
-                    </label>
-
-                    <select
-                        id="flesje6_lavendel"
-                        name="Flesje 6 Lavendel aantal"
-                        class="form-select aantal-select"
-                    >
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
-
-                </div>
-
-                <div class="geur-keuze">
-
-                    <label for="flesje6_pepermunt">
-                        Pepermunt
-                    </label>
-
-                    <select
-                        id="flesje6_pepermunt"
-                        name="Flesje 6 Pepermunt aantal"
-                        class="form-select aantal-select"
-                    >
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
-
-                </div>
-
-                <div class="prijs">
-                    €0.00 per stuk
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- FLESJE 1 -->
-
-        <div class="product">
-
-            <img
-                src="https://via.placeholder.com/300x300?text=Flesje+1"
-                alt="Flesje 1"
-            >
-
-            <div class="product-info">
-
-                <h5>Intimate lube 500ml</h5>
-
-                <button
-                    type="button"
-                    class="btn btn-outline-secondary btn-sm"
-                    onclick="toggleIngredienten('ingredienten1')"
-                >
-                    Ingrediënten
-                </button>
-
-                <div
-                    id="ingredienten1"
-                    class="ingredienten"
-                >
-                    <strong>Ingrediënten:</strong><br>
-                    Hier kun je de ingrediënten van Flesje 1 invullen.
-                </div>
-
-                <div class="geur-keuze">
-
-                    <label for="flesje1_sinaasappel">
-                        Sinaasappel
-                    </label>
-
-                    <select
-                        id="flesje1_sinaasappel"
-                        name="Flesje 1 Sinaasappel aantal"
-                        class="form-select aantal-select"
-                    >
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
-
-                </div>
-
-                <div class="geur-keuze">
-
-                    <label for="flesje1_lavendel">
-                        Lavendel
-                    </label>
-
-                    <select
-                        id="flesje1_lavendel"
-                        name="Flesje 1 Lavendel aantal"
-                        class="form-select aantal-select"
-                    >
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
-
-                </div>
-
-                <div class="geur-keuze">
-
-                    <label for="flesje1_pepermunt">
-                        Pepermunt
-                    </label>
-
-                    <select
-                        id="flesje1_pepermunt"
-                        name="Flesje 1 Pepermunt aantal"
-                        class="form-select aantal-select"
-                    >
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
-
-                </div>
-
-                <div class="prijs">
-                    €9.99 per stuk
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- FLESJE 2 -->
-
-        <div class="product">
-
-            <img
-                src="https://via.placeholder.com/300x300?text=Flesje+2"
-                alt="Flesje 2"
-            >
-
-            <div class="product-info">
-
-                <h5>Intimate Lube 1000ml</h5>
-
-                <button
-                    type="button"
-                    class="btn btn-outline-secondary btn-sm"
-                    onclick="toggleIngredienten('ingredienten2')"
-                >
-                    Ingrediënten
-                </button>
-
-                <div
-                    id="ingredienten2"
-                    class="ingredienten"
-                >
-                    <strong>Ingrediënten:</strong><br>
-                    Hier kun je de ingrediënten van Flesje 2 invullen.
-                </div>
-
-                <div class="geur-keuze">
-
-                    <label for="flesje2_sinaasappel">
-                        Sinaasappel
-                    </label>
-
-                    <select
-                        id="flesje2_sinaasappel"
-                        name="Flesje 2 Sinaasappel aantal"
-                        class="form-select aantal-select"
-                    >
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
-
-                </div>
-
-                <div class="geur-keuze">
-
-                    <label for="flesje2_lavendel">
-                        Lavendel
-                    </label>
-
-                    <select
-                        id="flesje2_lavendel"
-                        name="Flesje 2 Lavendel aantal"
-                        class="form-select aantal-select"
-                    >
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
-
-                </div>
-
-                <div class="geur-keuze">
-
-                    <label for="flesje2_pepermunt">
-                        Pepermunt
-                    </label>
-
-                    <select
-                        id="flesje2_pepermunt"
-                        name="Flesje 2 Pepermunt aantal"
-                        class="form-select aantal-select"
-                    >
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
-
-                </div>
-
-                <div class="prijs">
-                    €19.99 per stuk
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- FLESJE 3 -->
-
-        <div class="product">
-
-            <img
-                src="https://via.placeholder.com/300x300?text=Flesje+3"
-                alt="Flesje 3"
-            >
-
-            <div class="product-info">
-
-                <h5>Imitation sperm lube 500ml</h5>
-
-                <button
-                    type="button"
-                    class="btn btn-outline-secondary btn-sm"
-                    onclick="toggleIngredienten('ingredienten3')"
-                >
-                    Ingrediënten
-                </button>
-
-                <div
-                    id="ingredienten3"
-                    class="ingredienten"
-                >
-                    <strong>Ingrediënten:</strong><br>
-                    Hier kun je de ingrediënten van Flesje 3 invullen.
-                </div>
-
-                <label
-                    for="flesje3"
-                    class="form-label mt-3"
-                >
-                </label>
-
-                <select
-                    id="flesje3"
-                    name="Flesje 3 aantal"
-                    class="form-select aantal-select"
-                >
-
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-
-                </select>
-
-                <div class="prijs">
-                    €24.99 per stuk
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- FLESJE 4 -->
-
-        <div class="product">
-
-            <img
-                src="https://via.placeholder.com/300x300?text=Flesje+4"
-                alt="Flesje 4"
-            >
-
-            <div class="product-info">
-
-                <h5>Imitation sperm lube 1000ml</h5>
-
-                <button
-                    type="button"
-                    class="btn btn-outline-secondary btn-sm"
-                    onclick="toggleIngredienten('ingredienten4')"
-                >
-                    Ingrediënten
-                </button>
-
-                <div
-                    id="ingredienten4"
-                    class="ingredienten"
-                >
-                    <strong>Ingrediënten:</strong><br>
-                    Hier kun je de ingrediënten van Flesje 4 invullen.
-                </div>
-
-                <label
-                    for="flesje4"
-                    class="form-label mt-3"
-                >
-                </label>
-
-                <select
-                    id="flesje4"
-                    name="Flesje 4 aantal"
-                    class="form-select aantal-select"
-                >
-
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-
-                </select>
-
-                <div class="prijs">
-                    €39.99 per stuk
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- OPMERKINGEN -->
-
-        <div class="mb-3">
-
-            <label
-                for="opmerkingen"
-                class="form-label"
-            >
-                Opmerkingen / speciale wensen
-            </label>
-
-            <textarea
-                id="opmerkingen"
-                name="opmerkingen"
-                class="form-control"
-                rows="4"
-            ></textarea>
-
-        </div>
-
-        <button
-            type="submit"
-            class="btn btn-primary w-100"
-        >
-            Bestelling verzenden
-        </button>
-
-    </form>
-
+<h1 class="mb-4">Bestelformulier</h1>
+<p>Vul dit formulier in om een bestelling te plaatsen. Je ontvangt een bevestiging via e-mail.</p>
+
+<form action="https://formspree.io/f/xwlkkaea" method="POST" class="border p-4 bg-white rounded">
+
+<h4 class="mb-3">Gegevens</h4>
+
+<div class="mb-3">
+<label class="form-label">Naam *</label>
+<input type="text" name="naam" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Instagram-accountnaam *</label>
+<input type="text" name="instagram accountnaam" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Telefoonnummer *</label>
+<input type="tel" name="telefoonnummer" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Betalingswijze *</label>
+<div class="form-check">
+<input class="form-check-input" type="radio" name="betalingswijze" value="Cash" id="cash" required>
+<label class="form-check-label" for="cash">Cash</label>
+</div>
+<div class="form-check">
+<input class="form-check-input" type="radio" name="betalingswijze" value="Bancontact" id="bancontact">
+<label class="form-check-label" for="bancontact">Bancontact</label>
+</div>
+</div>
+
+<hr>
+<h4 class="mb-4">Bestelling</h4>
+
+<!-- FLESJE 5 -->
+<div class="product">
+<img src="https://via.placeholder.com/300x300?text=Flesje+5" alt="Flesje 5">
+<div class="product-info">
+<h5>Massage Olie 500ml</h5>
+<button type="button" class="btn btn-outline-secondary btn-sm" onclick="ingredienten(5)">Ingrediënten</button>
+<div id="i5" class="ingredienten"><strong>Ingrediënten:</strong><br>Hier kun je de ingrediënten van Flesje 5 invullen.</div>
+<div class="geuren">
+<button type="button" class="btn btn-outline-primary" onclick="geur(5,'sinaasappel')">Sinaasappel</button>
+<button type="button" class="btn btn-outline-primary" onclick="geur(5,'lavendel')">Lavendel</button>
+<button type="button" class="btn btn-outline-primary" onclick="geur(5,'pepermunt')">Pepermunt</button>
+</div>
+<div id="g5s" class="geur">
+<label>Aantal Sinaasappel</label>
+<select name="Flesje 5 Sinaasappel" class="form-select aantal"></select>
+</div>
+<div id="g5l" class="geur">
+<label>Aantal Lavendel</label>
+<select name="Flesje 5 Lavendel" class="form-select aantal"></select>
+</div>
+<div id="g5p" class="geur">
+<label>Aantal Pepermunt</label>
+<select name="Flesje 5 Pepermunt" class="form-select aantal"></select>
+</div>
+<div class="prijs">€0.00 per stuk</div>
+</div>
+</div>
+
+<!-- FLESJE 6 -->
+<div class="product">
+<img src="https://via.placeholder.com/300x300?text=Flesje+6" alt="Flesje 6">
+<div class="product-info">
+<h5>Massage Olie 1000ml</h5>
+<button type="button" class="btn btn-outline-secondary btn-sm" onclick="ingredienten(6)">Ingrediënten</button>
+<div id="i6" class="ingredienten"><strong>Ingrediënten:</strong><br>Hier kun je de ingrediënten van Flesje 6 invullen.</div>
+<div class="geuren">
+<button type="button" class="btn btn-outline-primary" onclick="geur(6,'sinaasappel')">Sinaasappel</button>
+<button type="button" class="btn btn-outline-primary" onclick="geur(6,'lavendel')">Lavendel</button>
+<button type="button" class="btn btn-outline-primary" onclick="geur(6,'pepermunt')">Pepermunt</button>
+</div>
+<div id="g6s" class="geur">
+<label>Aantal Sinaasappel</label>
+<select name="Flesje 6 Sinaasappel" class="form-select aantal"></select>
+</div>
+<div id="g6l" class="geur">
+<label>Aantal Lavendel</label>
+<select name="Flesje 6 Lavendel" class="form-select aantal"></select>
+</div>
+<div id="g6p" class="geur">
+<label>Aantal Pepermunt</label>
+<select name="Flesje 6 Pepermunt" class="form-select aantal"></select>
+</div>
+<div class="prijs">€0.00 per stuk</div>
+</div>
+</div>
+
+<!-- FLESJE 1 -->
+<div class="product">
+<img src="https://via.placeholder.com/300x300?text=Flesje+1" alt="Flesje 1">
+<div class="product-info">
+<h5>Intimate lube 500ml</h5>
+<button type="button" class="btn btn-outline-secondary btn-sm" onclick="ingredienten(1)">Ingrediënten</button>
+<div id="i1" class="ingredienten"><strong>Ingrediënten:</strong><br>Hier kun je de ingrediënten van Flesje 1 invullen.</div>
+<div class="geuren">
+<button type="button" class="btn btn-outline-primary" onclick="geur(1,'sinaasappel')">Sinaasappel</button>
+<button type="button" class="btn btn-outline-primary" onclick="geur(1,'lavendel')">Lavendel</button>
+<button type="button" class="btn btn-outline-primary" onclick="geur(1,'pepermunt')">Pepermunt</button>
+</div>
+<div id="g1s" class="geur">
+<label>Aantal Sinaasappel</label>
+<select name="Flesje 1 Sinaasappel" class="form-select aantal"></select>
+</div>
+<div id="g1l" class="geur">
+<label>Aantal Lavendel</label>
+<select name="Flesje 1 Lavendel" class="form-select aantal"></select>
+</div>
+<div id="g1p" class="geur">
+<label>Aantal Pepermunt</label>
+<select name="Flesje 1 Pepermunt" class="form-select aantal"></select>
+</div>
+<div class="prijs">€9.99 per stuk</div>
+</div>
+</div>
+
+<!-- FLESJE 2 -->
+<div class="product">
+<img src="https://via.placeholder.com/300x300?text=Flesje+2" alt="Flesje 2">
+<div class="product-info">
+<h5>Intimate Lube 1000ml</h5>
+<button type="button" class="btn btn-outline-secondary btn-sm" onclick="ingredienten(2)">Ingrediënten</button>
+<div id="i2" class="ingredienten"><strong>Ingrediënten:</strong><br>Hier kun je de ingrediënten van Flesje 2 invullen.</div>
+<div class="geuren">
+<button type="button" class="btn btn-outline-primary" onclick="geur(2,'sinaasappel')">Sinaasappel</button>
+<button type="button" class="btn btn-outline-primary" onclick="geur(2,'lavendel')">Lavendel</button>
+<button type="button" class="btn btn-outline-primary" onclick="geur(2,'pepermunt')">Pepermunt</button>
+</div>
+<div id="g2s" class="geur">
+<label>Aantal Sinaasappel</label>
+<select name="Flesje 2 Sinaasappel" class="form-select aantal"></select>
+</div>
+<div id="g2l" class="geur">
+<label>Aantal Lavendel</label>
+<select name="Flesje 2 Lavendel" class="form-select aantal"></select>
+</div>
+<div id="g2p" class="geur">
+<label>Aantal Pepermunt</label>
+<select name="Flesje 2 Pepermunt" class="form-select aantal"></select>
+</div>
+<div class="prijs">€19.99 per stuk</div>
+</div>
+</div>
+
+<!-- FLESJE 3 -->
+<div class="product">
+<img src="https://via.placeholder.com/300x300?text=Flesje+3" alt="Flesje 3">
+<div class="product-info">
+<h5>Imitation sperm lube 500ml</h5>
+<button type="button" class="btn btn-outline-secondary btn-sm" onclick="ingredienten(3)">Ingrediënten</button>
+<div id="i3" class="ingredienten"><strong>Ingrediënten:</strong><br>Hier kun je de ingrediënten van Flesje 3 invullen.</div>
+<select name="Flesje 3 aantal" class="form-select aantal"></select>
+<div class="prijs">€24.99 per stuk</div>
+</div>
+</div>
+
+<!-- FLESJE 4 -->
+<div class="product">
+<img src="https://via.placeholder.com/300x300?text=Flesje+4" alt="Flesje 4">
+<div class="product-info">
+<h5>Imitation sperm lube 1000ml</h5>
+<button type="button" class="btn btn-outline-secondary btn-sm" onclick="ingredienten(4)">Ingrediënten</button>
+<div id="i4" class="ingredienten"><strong>Ingrediënten:</strong><br>Hier kun je de ingrediënten van Flesje 4 invullen.</div>
+<select name="Flesje 4 aantal" class="form-select aantal"></select>
+<div class="prijs">€39.99 per stuk</div>
+</div>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Opmerkingen / speciale wensen</label>
+<textarea name="opmerkingen" class="form-control" rows="4"></textarea>
+</div>
+
+<button type="submit" class="btn btn-primary w-100">Bestelling verzenden</button>
+
+</form>
 </div>
 
 <script>
+document.querySelectorAll(".aantal").forEach(s=>{
+    for(let i=0;i<=10;i++)s.innerHTML+=`<option value="${i}">${i}</option>`;
+});
 
-function toggleIngredienten(id) {
-
-    const element = document.getElementById(id);
-
-    if (element.style.display === "none" || element.style.display === "") {
-        element.style.display = "block";
-    } else {
-        element.style.display = "none";
-    }
-
+function ingredienten(n){
+    let e=document.getElementById("i"+n);
+    e.style.display=e.style.display=="block"?"none":"block";
 }
 
+function geur(n,g){
+    document.getElementById("g"+n+g[0]).style.display="block";
+}
 </script>
 
 </body>
-
 </html>
 ```
