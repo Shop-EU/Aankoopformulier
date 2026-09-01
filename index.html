@@ -50,6 +50,15 @@
             max-width: 120px;
         }
 
+        .ingredienten {
+            display: none;
+            margin-top: 15px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+        }
+
         @media (max-width: 600px) {
 
             .product {
@@ -152,9 +161,25 @@
 
                 <h5>Flesje 5</h5>
 
+                <button
+                    type="button"
+                    class="btn btn-outline-secondary btn-sm"
+                    onclick="toggleIngredienten('ingredienten5')"
+                >
+                    Ingrediënten
+                </button>
+
+                <div
+                    id="ingredienten5"
+                    class="ingredienten"
+                >
+                    <strong>Ingrediënten:</strong><br>
+                    Hier kun je de ingrediënten van Flesje 5 invullen.
+                </div>
+
                 <label
                     for="flesje5"
-                    class="form-label"
+                    class="form-label mt-3"
                 >
                     Aantal
                 </label>
@@ -202,9 +227,25 @@
 
                 <h5>Flesje 6</h5>
 
+                <button
+                    type="button"
+                    class="btn btn-outline-secondary btn-sm"
+                    onclick="toggleIngredienten('ingredienten6')"
+                >
+                    Ingrediënten
+                </button>
+
+                <div
+                    id="ingredienten6"
+                    class="ingredienten"
+                >
+                    <strong>Ingrediënten:</strong><br>
+                    Hier kun je de ingrediënten van Flesje 6 invullen.
+                </div>
+
                 <label
                     for="flesje6"
-                    class="form-label"
+                    class="form-label mt-3"
                 >
                     Aantal
                 </label>
@@ -252,9 +293,25 @@
 
                 <h5>Massage olie/lube 500ml</h5>
 
+                <button
+                    type="button"
+                    class="btn btn-outline-secondary btn-sm"
+                    onclick="toggleIngredienten('ingredienten1')"
+                >
+                    Ingrediënten
+                </button>
+
+                <div
+                    id="ingredienten1"
+                    class="ingredienten"
+                >
+                    <strong>Ingrediënten:</strong><br>
+                    Hier kun je de ingrediënten van Flesje 1 invullen.
+                </div>
+
                 <label
                     for="flesje1"
-                    class="form-label"
+                    class="form-label mt-3"
                 >
                     Aantal
                 </label>
@@ -302,9 +359,25 @@
 
                 <h5>Massage olie/lube 1000ml</h5>
 
+                <button
+                    type="button"
+                    class="btn btn-outline-secondary btn-sm"
+                    onclick="toggleIngredienten('ingredienten2')"
+                >
+                    Ingrediënten
+                </button>
+
+                <div
+                    id="ingredienten2"
+                    class="ingredienten"
+                >
+                    <strong>Ingrediënten:</strong><br>
+                    Hier kun je de ingrediënten van Flesje 2 invullen.
+                </div>
+
                 <label
                     for="flesje2"
-                    class="form-label"
+                    class="form-label mt-3"
                 >
                     Aantal
                 </label>
@@ -352,9 +425,25 @@
 
                 <h5>Imitation sperm lube 500ml</h5>
 
+                <button
+                    type="button"
+                    class="btn btn-outline-secondary btn-sm"
+                    onclick="toggleIngredienten('ingredienten3')"
+                >
+                    Ingrediënten
+                </button>
+
+                <div
+                    id="ingredienten3"
+                    class="ingredienten"
+                >
+                    <strong>Ingrediënten:</strong><br>
+                    Hier kun je de ingrediënten van Flesje 3 invullen.
+                </div>
+
                 <label
                     for="flesje3"
-                    class="form-label"
+                    class="form-label mt-3"
                 >
                     Aantal
                 </label>
@@ -402,9 +491,25 @@
 
                 <h5>Imitation sperm lube 1000ml</h5>
 
+                <button
+                    type="button"
+                    class="btn btn-outline-secondary btn-sm"
+                    onclick="toggleIngredienten('ingredienten4')"
+                >
+                    Ingrediënten
+                </button>
+
+                <div
+                    id="ingredienten4"
+                    class="ingredienten"
+                >
+                    <strong>Ingrediënten:</strong><br>
+                    Hier kun je de ingrediënten van Flesje 4 invullen.
+                </div>
+
                 <label
                     for="flesje4"
-                    class="form-label"
+                    class="form-label mt-3"
                 >
                     Aantal
                 </label>
@@ -470,6 +575,23 @@
     </form>
 
 </div>
+
+
+<script>
+
+function toggleIngredienten(id) {
+
+    const element = document.getElementById(id);
+
+    if (element.style.display === "none" || element.style.display === "") {
+        element.style.display = "block";
+    } else {
+        element.style.display = "none";
+    }
+
+}
+
+</script>
 
 </body>
 
