@@ -38,13 +38,11 @@
 <input type="text" name="instagram accountnaam" class="form-control" required>
 </div>
 
-<!-- NIEUW: TELEFOONNUMMER -->
 <div class="mb-3">
 <label class="form-label">Telefoonnummer *</label>
 <input type="tel" name="telefoonnummer" class="form-control" required>
 </div>
 
-<!-- NIEUW: BETAALMETHODE -->
 <div class="mb-3">
 <label class="form-label">Betaalmethode *</label>
 
@@ -198,6 +196,15 @@
 </div>
 </div>
 
+<!-- PRODUCT 7 -->
+<div class="product">
+<img src="https://via.placeholder.com/300x300?text=Coming+Soon" alt="Speeltjes Coming Soon">
+<div class="product-info">
+<h5>Speeltjes <small>(Coming Soon)</small></h5>
+<p>Dit product is binnenkort beschikbaar.</p>
+</div>
+</div>
+
 <div class="mb-3">
 <label class="form-label">Opmerkingen / speciale wensen</label>
 <textarea name="opmerkingen" class="form-control" rows="4"></textarea>
@@ -215,11 +222,13 @@ document.querySelectorAll(".aantal").forEach(s=>{
 
 function ingredienten(n){
     let e=document.getElementById("i"+n);
-    e.style.display=e.style.display=="block"?"none":"block";
+    e.style.display = e.style.display === "block" ? "none" : "block";
 }
 
 function geur(n,g){
-    document.getElementById("g"+n+g[0]).style.display="block";
+    let id = "g"+n+g[0];
+    let el = document.getElementById(id);
+    el.style.display = el.style.display === "block" ? "none" : "block";
 }
 </script>
 
