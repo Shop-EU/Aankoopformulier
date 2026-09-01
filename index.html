@@ -232,11 +232,21 @@ function ingredienten(n){
     e.style.display = e.style.display === "block" ? "none" : "block";
 }
 
-function geur(n,g){
-    let id = "g"+n+g[0];
+function geur(n, g) {
+    // ID van het aangeklikte geur‑veld
+    let id = "g" + n + g[0];
     let el = document.getElementById(id);
-    el.style.display = el.style.display === "block" ? "none" : "block";
+
+    // Alle geur‑velden van dit product sluiten
+    document.querySelectorAll(`#g${n}s, #g${n}l, #g${n}p`).forEach(div => {
+        if (div.id !== id) div.style.display = "none";
+    });
+
+    // Toggle het aangeklikte veld
+    el.style.display = (el.style.display === "block") ? "none" : "block";
 }
+</script>
+
 </script>
 
 </body>
