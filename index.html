@@ -20,11 +20,11 @@
 }
 
 .product img{
-    width:140px;
-    height:140px;
-    object-fit:cover;      /* jouw originele instelling */
+    width:170px;
+    height:170px;
+    object-fit:cover;        /* vult het kader mooi */
+    object-position:center;  /* centreert de foto */
     border-radius:10px;
-    cursor:pointer;        /* klikbaar voor vergroting */
 }
 
 .product-info{flex:1}
@@ -57,46 +57,13 @@
         width:100%;
         height:220px;
         object-fit:cover;
+        object-position:center;
     }
-}
-
-/* OVERLAY VOOR VERGROTE FOTO */
-#imgOverlay{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.85);
-    display:none;
-    justify-content:center;
-    align-items:center;
-    z-index:9999;
-}
-
-#imgOverlay img{
-    max-width:90%;
-    max-height:90%;
-    border-radius:12px;
-    box-shadow:0 0 25px rgba(255,255,255,0.3);
-}
-
-#closeOverlay{
-    position:absolute;
-    top:20px;
-    right:30px;
-    font-size:40px;
-    color:white;
-    cursor:pointer;
-    font-weight:bold;
 }
 </style>
 </head>
 
 <body class="bg-light">
-
-<!-- OVERLAY -->
-<div id="imgOverlay">
-    <span id="closeOverlay">&times;</span>
-    <img id="overlayImg" src="">
-</div>
 
 <div class="container mt-5 mb-5">
 <h1 class="mb-4">Bestelformulier</h1>
@@ -262,24 +229,6 @@ function geur(n, g) {
 
     el.style.display = (el.style.display === "block") ? "none" : "block";
 }
-
-/* FOTO VERGROTING */
-document.querySelectorAll(".product img").forEach(img=>{
-    img.addEventListener("click", ()=>{
-        document.getElementById("overlayImg").src = img.src;
-        document.getElementById("imgOverlay").style.display = "flex";
-    });
-});
-
-document.getElementById("closeOverlay").onclick = ()=>{
-    document.getElementById("imgOverlay").style.display = "none";
-};
-
-document.getElementById("imgOverlay").onclick = (e)=>{
-    if(e.target.id === "imgOverlay"){
-        document.getElementById("imgOverlay").style.display = "none";
-    }
-};
 </script>
 
 </body>
