@@ -22,9 +22,10 @@
 .product img{
     width:200px;
     height:200px;
-    object-fit:cover;        /* vult het kader mooi */
-    object-position:center;  /* centreert de foto */
+    object-fit:cover;
+    object-position:center;
     border-radius:10px;
+    cursor:pointer;
 }
 
 .product-info{flex:1}
@@ -60,10 +61,36 @@
         object-position:center;
     }
 }
+
+/* LIGHTBOX */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+    object-fit: contain;
+}
 </style>
 </head>
 
 <body class="bg-light">
+
+<!-- LIGHTBOX OVERLAY -->
+<div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="">
+</div>
 
 <div class="container mt-5 mb-5">
 <h1 class="mb-4">Bestelformulier</h1>
@@ -228,6 +255,19 @@ function geur(n, g) {
     });
 
     el.style.display = (el.style.display === "block") ? "none" : "block";
+}
+
+// LIGHTBOX OPENEN
+document.querySelectorAll(".product img").forEach(img => {
+    img.addEventListener("click", () => {
+        document.getElementById("lightbox-img").src = img.src;
+        document.getElementById("lightbox").style.display = "flex";
+    });
+});
+
+// LIGHTBOX SLUITEN
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
 }
 </script>
 
