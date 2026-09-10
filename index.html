@@ -22,10 +22,9 @@
 .product img{
     width:140px;
     height:140px;
-    object-fit:cover;
-    object-position:center;
+    object-fit:cover;      /* jouw originele instelling */
     border-radius:10px;
-    cursor:pointer; /* klikbaar */
+    cursor:pointer;        /* klikbaar voor vergroting */
 }
 
 .product-info{flex:1}
@@ -58,17 +57,13 @@
         width:100%;
         height:220px;
         object-fit:cover;
-        object-position:center;
     }
 }
 
-/* --- FOTO OVERLAY --- */
+/* OVERLAY VOOR VERGROTE FOTO */
 #imgOverlay{
     position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
+    inset:0;
     background:rgba(0,0,0,0.85);
     display:none;
     justify-content:center;
@@ -268,7 +263,7 @@ function geur(n, g) {
     el.style.display = (el.style.display === "block") ? "none" : "block";
 }
 
-/* --- FOTO VERGROTING --- */
+/* FOTO VERGROTING */
 document.querySelectorAll(".product img").forEach(img=>{
     img.addEventListener("click", ()=>{
         document.getElementById("overlayImg").src = img.src;
